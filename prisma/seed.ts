@@ -158,17 +158,6 @@ async function main() {
   });
   console.log(`SUPER_ADMIN ready: ${superAdmin.email} (password from ADMIN_PASSWORD env var)`);
 
-  const staffAdmin = await createUserWithWallet({
-    fullName: 'Staff Admin (seed)',
-    email: 'staffadmin@example.com',
-    phone: '0700000001',
-    password: 'StaffAdmin123!',
-    role: 'ADMIN',
-    status: 'ACTIVE',
-    referralCode: 'PESAREFSTAFF',
-  });
-  console.log('Sample ADMIN (dev only): staffadmin@example.com / StaffAdmin123!');
-
   await prisma.systemSetting.upsert({
     where: { key: 'registrationFeeKes' },
     update: {},
@@ -184,6 +173,28 @@ async function main() {
     update: {},
     create: { key: 'minWithdrawalKes', value: '250' },
   });
+
+  // Sample staff/member accounts and fake financial history are for local
+  // development and demos only. Set SEED_SAMPLE_DATA=false (e.g. in
+  // production) to create just the SUPER_ADMIN account above and stop here.
+  const seedSampleData = process.env.SEED_SAMPLE_DATA !== 'false';
+  if (!seedSampleData) {
+    console.log('SEED_SAMPLE_DATA=false - skipping sample staff/member accounts and demo data.');
+    console.log('Seed complete. Production admin login:');
+    console.log('  SUPER_ADMIN : ' + adminEmail + ' / (value of ADMIN_PASSWORD env var)');
+    return;
+  }
+
+  const staffAdmin = await createUserWithWallet({
+    fullName: 'Staff Admin (seed)',
+    email: 'staffadmin@example.com',
+    phone: '0700000001',
+    password: 'StaffAdmin123!',
+    role: 'ADMIN',
+    status: 'ACTIVE',
+    referralCode: 'PESAREFSTAFF',
+  });
+  console.log('Sample ADMIN (dev only): staffadmin@example.com / StaffAdmin123!');
 
   const alice = await createUserWithWallet({
     fullName: 'Alice Wanjiru',
