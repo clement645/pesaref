@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 210 40% 98%;
+  --foreground: 222 47% 11%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  --border: 214 32% 89%;
+  --input: 214 32% 89%;
+  --ring: 158 64% 32%;
+
+  --primary: 158 64% 28%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 210 40% 94%;
+  --secondary-foreground: 222 47% 11%;
+
+  --muted: 210 40% 94%;
+  --muted-foreground: 215 16% 42%;
+
+  --accent: 42 96% 50%;
+  --accent-foreground: 26 30% 15%;
+
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+
+  --success: 152 58% 32%;
+  --success-foreground: 0 0% 100%;
+
+  --warning: 38 92% 45%;
+  --warning-foreground: 26 30% 12%;
+
+  --radius: 0.65rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --background: 222 47% 8%;
+    --foreground: 210 40% 96%;
+    --card: 222 40% 11%;
+    --card-foreground: 210 40% 96%;
+    --border: 217 25% 20%;
+    --input: 217 25% 20%;
+    --ring: 158 64% 40%;
+
+    --primary: 158 64% 40%;
+    --primary-foreground: 222 47% 8%;
+
+    --secondary: 217 25% 16%;
+    --secondary-foreground: 210 40% 96%;
+
+    --muted: 217 25% 16%;
+    --muted-foreground: 215 16% 65%;
+
+    --accent: 42 90% 55%;
+    --accent-foreground: 26 30% 10%;
+
+    --destructive: 0 62% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 152 50% 42%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 55%;
+    --warning-foreground: 26 30% 10%;
+  }
+}
+
+:root[data-theme='dark'] {
+  --background: 222 47% 8%;
+  --foreground: 210 40% 96%;
+  --card: 222 40% 11%;
+  --card-foreground: 210 40% 96%;
+  --border: 217 25% 20%;
+  --input: 217 25% 20%;
+  --ring: 158 64% 40%;
+  --primary: 158 64% 40%;
+  --primary-foreground: 222 47% 8%;
+  --secondary: 217 25% 16%;
+  --secondary-foreground: 210 40% 96%;
+  --muted: 217 25% 16%;
+  --muted-foreground: 215 16% 65%;
+  --accent: 42 90% 55%;
+  --accent-foreground: 26 30% 10%;
+  --destructive: 0 62% 55%;
+  --destructive-foreground: 0 0% 100%;
+  --success: 152 50% 42%;
+  --success-foreground: 0 0% 100%;
+  --warning: 38 92% 55%;
+  --warning-foreground: 26 30% 10%;
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
