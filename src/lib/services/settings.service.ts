@@ -19,7 +19,7 @@ const DEFAULTS: Record<string, string> = {
   [SETTING_KEYS.SUPPORT_EMAIL]: 'support@example.com',
   [SETTING_KEYS.SUPPORT_PHONE]: '+254700000000',
   [SETTING_KEYS.PAYMENT_INSTRUCTIONS]:
-    'Send KSh 500 via M-Pesa to Till Number 000000 (PesaRef Ltd). Use your full name as the account reference, then submit the transaction reference below.',
+    'Send KSh 500 via M-Pesa to Till Number 6614582 (ABRAHAM). Use your full name as the account reference, then submit the transaction reference below.',
 };
 
 export async function getSetting(key: string): Promise<string> {
