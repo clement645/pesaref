@@ -92,7 +92,7 @@ describe('Withdrawal test: reservation, payout, and rejection', () => {
     const user = await createTestUser({ status: 'ACTIVE' });
     await fund(user.id, 1000);
 
-    await expect(requestWithdrawal({ userId: user.id, amount: 100, phone: user.phone }, noopCtx)).rejects.toThrow(
+    await expect(requestWithdrawal({ userId: user.id, amount: 50, phone: user.phone }, noopCtx)).rejects.toThrow(
       'Minimum withdrawal amount'
     );
   });

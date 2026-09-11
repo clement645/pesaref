@@ -171,7 +171,7 @@ async function main() {
   await prisma.systemSetting.upsert({
     where: { key: 'minWithdrawalKes' },
     update: {},
-    create: { key: 'minWithdrawalKes', value: '250' },
+    create: { key: 'minWithdrawalKes', value: '100' },
   });
 
   // Sample staff/member accounts and fake financial history are for local
