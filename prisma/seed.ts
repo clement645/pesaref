@@ -166,7 +166,7 @@ async function main() {
   await prisma.systemSetting.upsert({
     where: { key: 'referralCommissionKes' },
     update: {},
-    create: { key: 'referralCommissionKes', value: '250' },
+    create: { key: 'referralCommissionKes', value: '100' },
   });
   await prisma.systemSetting.upsert({
     where: { key: 'minWithdrawalKes' },
@@ -363,7 +363,7 @@ async function main() {
       qualifyingPaymentId: bobPayment.id,
     },
   });
-  await creditCommission(alice.id, bobReferral.id, 250);
+  await creditCommission(alice.id, bobReferral.id, 100);
 
   const daveReferral = await prisma.referral.create({
     data: {
@@ -374,7 +374,7 @@ async function main() {
       qualifyingPaymentId: davePayment.id,
     },
   });
-  await creditCommission(alice.id, daveReferral.id, 250);
+  await creditCommission(alice.id, daveReferral.id, 100);
 
   const ireneReferral = await prisma.referral.create({
     data: {
@@ -385,7 +385,7 @@ async function main() {
       qualifyingPaymentId: irenePayment.id,
     },
   });
-  await creditCommission(dave.id, ireneReferral.id, 250);
+  await creditCommission(dave.id, ireneReferral.id, 100);
 
   // Grace's payment was rejected - referral stays REGISTERED, no commission.
   await prisma.referral.create({
@@ -408,13 +408,13 @@ async function main() {
   });
 
   // --- Withdrawals -------------------------------------------------------
-  // Alice has 500 available (2 x 250 commissions). Request + pay 300.
-  const aliceWithdrawal = await reserveWithdrawal(alice.id, 300, alice.phone);
+  // Alice has 200 available (2 x 100 commissions). Request + pay 150.
+  const aliceWithdrawal = await reserveWithdrawal(alice.id, 150, alice.phone);
   await payWithdrawal(aliceWithdrawal.id, superAdmin.id, 'QFT1SEEDPAYOUT1');
 
-  // Dave has 250 available. Request a withdrawal that stays PENDING for the
+  // Dave has 100 available. Request a withdrawal that stays PENDING for the
   // admin demo (mark-as-paid / reject screens).
-  await reserveWithdrawal(dave.id, 250, dave.phone);
+  await reserveWithdrawal(dave.id, 100, dave.phone);
 
   console.log('Seed complete. Sample login credentials (development only):');
   console.log('  SUPER_ADMIN : ' + adminEmail + ' / (value of ADMIN_PASSWORD env var)');

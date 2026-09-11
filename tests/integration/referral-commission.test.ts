@@ -13,7 +13,7 @@ describe('Critical financial test: referral commission lifecycle', () => {
     await prisma.$disconnect();
   });
 
-  it('credits exactly one KSh 250 commission when a referred user\'s payment is approved', async () => {
+  it('credits exactly one KSh 100 commission when a referred user\'s payment is approved', async () => {
     const userA = await createTestUser({ status: 'ACTIVE' });
 
     const { userId: userBId } = await registerUser(
@@ -36,12 +36,12 @@ describe('Critical financial test: referral commission lifecycle', () => {
     await approvePayment({ paymentId: payment.id, adminId: userA.id, adminNote: '' }, noopCtx);
 
     const walletA = await getWallet(userA.id);
-    expect(walletA.availableBalance).toBe(250);
-    expect(walletA.totalEarned).toBe(250);
+    expect(walletA.availableBalance).toBe(100);
+    expect(walletA.totalEarned).toBe(100);
 
     const referral = await prisma.referral.findUniqueOrThrow({ where: { referredId: userBId } });
     expect(referral.status).toBe('COMMISSIONED');
-    expect(referral.commissionAmount).toBe(250);
+    expect(referral.commissionAmount).toBe(100);
 
     const userB = await prisma.user.findUniqueOrThrow({ where: { id: userBId } });
     expect(userB.status).toBe('ACTIVE');
@@ -72,7 +72,7 @@ describe('Critical financial test: referral commission lifecycle', () => {
     );
 
     const walletA = await getWallet(userA.id);
-    expect(walletA.availableBalance).toBe(250); // still only one commission
+    expect(walletA.availableBalance).toBe(100); // still only one commission
 
     const transactions = await prisma.walletTransaction.findMany({ where: { userId: userA.id, type: 'REFERRAL_COMMISSION' } });
     expect(transactions).toHaveLength(1);
