@@ -161,7 +161,7 @@ async function main() {
   await prisma.systemSetting.upsert({
     where: { key: 'registrationFeeKes' },
     update: {},
-    create: { key: 'registrationFeeKes', value: '500' },
+    create: { key: 'registrationFeeKes', value: '200' },
   });
   await prisma.systemSetting.upsert({
     where: { key: 'referralCommissionKes' },
@@ -281,7 +281,7 @@ async function main() {
   const bobPayment = await prisma.payment.create({
     data: {
       userId: bob.id,
-      amount: 500,
+      amount: 200,
       status: 'APPROVED',
       paymentReference: 'QFT1SEEDBOB',
       paymentPhone: bob.phone,
@@ -294,7 +294,7 @@ async function main() {
   const davePayment = await prisma.payment.create({
     data: {
       userId: dave.id,
-      amount: 500,
+      amount: 200,
       status: 'APPROVED',
       paymentReference: 'QFT1SEEDDAVE',
       paymentPhone: dave.phone,
@@ -307,7 +307,7 @@ async function main() {
   const irenePayment = await prisma.payment.create({
     data: {
       userId: irene.id,
-      amount: 500,
+      amount: 200,
       status: 'APPROVED',
       paymentReference: 'QFT1SEEDIRENE',
       paymentPhone: irene.phone,
@@ -320,7 +320,7 @@ async function main() {
   await prisma.payment.create({
     data: {
       userId: grace.id,
-      amount: 500,
+      amount: 200,
       status: 'REJECTED',
       paymentReference: 'QFT1SEEDGRACE',
       paymentPhone: grace.phone,
@@ -334,7 +334,7 @@ async function main() {
   await prisma.payment.create({
     data: {
       userId: henry.id,
-      amount: 500,
+      amount: 200,
       status: 'PENDING',
       paymentReference: 'QFT1SEEDHENRY',
       paymentPhone: henry.phone,
@@ -345,7 +345,7 @@ async function main() {
   await prisma.payment.create({
     data: {
       userId: carol.id,
-      amount: 500,
+      amount: 200,
       status: 'PENDING',
       paymentReference: 'QFT1SEEDCAROL',
       paymentPhone: carol.phone,

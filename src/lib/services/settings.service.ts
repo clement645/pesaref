@@ -12,14 +12,14 @@ export const SETTING_KEYS = {
 } as const;
 
 const DEFAULTS: Record<string, string> = {
-  [SETTING_KEYS.REGISTRATION_FEE_KES]: process.env.REGISTRATION_FEE_KES ?? '500',
+  [SETTING_KEYS.REGISTRATION_FEE_KES]: process.env.REGISTRATION_FEE_KES ?? '200',
   [SETTING_KEYS.REFERRAL_COMMISSION_KES]: process.env.REFERRAL_COMMISSION_KES ?? '250',
   [SETTING_KEYS.MIN_WITHDRAWAL_KES]: process.env.MIN_WITHDRAWAL_KES ?? '250',
   [SETTING_KEYS.PLATFORM_NAME]: 'PesaRef',
   [SETTING_KEYS.SUPPORT_EMAIL]: 'support@example.com',
   [SETTING_KEYS.SUPPORT_PHONE]: '+254700000000',
   [SETTING_KEYS.PAYMENT_INSTRUCTIONS]:
-    'Send KSh 500 via M-Pesa to Till Number 6614582 (ABRAHAM). Use your full name as the account reference, then submit the transaction reference below.',
+    'Send KSh 200 via M-Pesa to Till Number 6614582 (ABRAHAM). Use your full name as the account reference, then submit the transaction reference below.',
 };
 
 export async function getSetting(key: string): Promise<string> {

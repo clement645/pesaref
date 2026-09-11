@@ -1,6 +1,6 @@
 # PesaRef
 
-A production-oriented referral management platform for a KSh 500 one-time
+A production-oriented referral management platform for a KSh 200 one-time
 registration/service fee and a one-level, KSh 250 referral commission
 program, with manual (non-automated) payment and withdrawal processing.
 
@@ -10,11 +10,11 @@ program, with manual (non-automated) payment and withdrawal processing.
 
 ## 1. Project overview
 
-- Members pay a one-time KSh 500 registration/service fee to activate their
+- Members pay a one-time KSh 200 registration/service fee to activate their
   account.
 - Every **ACTIVE** member gets a unique referral code and link
   (`/register?ref=CODE`).
-- When a referred person registers and their own KSh 500 payment is
+- When a referred person registers and their own KSh 200 payment is
   **manually verified and approved**, the referrer earns a KSh 250
   commission - automatically, exactly once, atomically.
 - This is a **one-level** referral system only - no multi-level payouts.
